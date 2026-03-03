@@ -5,48 +5,56 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <meta name="google-site-verification" content="mVbrLsdyz076PAzXi4CUYURN5gsYti1DatIL098FeVs" />
-    
-    <title>سورة يس مكتوبة كاملة | أذكار الصباح والمساء والسبحة الإلكترونية</title>
-    <meta name="description" content="اقرأ سورة يس مكتوبة كاملة بالتشكيل مع أذكار الصباح والمساء والسبحة الإلكترونية. موقع إسلامي سريع ومريح للعين.">
-    <meta name="keywords" content="سورة يس, أذكار الصباح, أذكار المساء, سبحة إلكترونية, سورة يس مكتوبة, اذكار المسلم">
-
+   <!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>موقع إسلامي | القرآن والأذكار</title>
     <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Reem+Kufi:wght@500&display=swap" rel="stylesheet">
-
     <style>
         :root {
-            --bg-color: #f9f7f2;
-            --text-color: #2c3e50;
-            --accent-color: #1a5d1a; 
-            --drawer-width: 280px;
+            --main-green: #1a5d1a;
+            --light-green: #2ecc71;
+            --gold: #D4AF37;
+            --bg-color: #f4f7f4;
+            --card-bg: #ffffff;
         }
 
         body {
             background-color: var(--bg-color);
-            color: var(--text-color);
             font-family: 'Amiri', serif;
             margin: 0;
             padding: 0;
-            line-height: 2;
+            color: #333;
+        }
+
+        /* الهيدر والقائمة الجانبية */
+        .header {
+            background: var(--main-green);
+            color: white;
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
 
         .menu-btn {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            font-size: 24px;
+            font-size: 25px;
             cursor: pointer;
-            background: var(--accent-color);
-            color: white;
+            background: none;
             border: none;
-            padding: 12px 18px;
-            border-radius: 12px;
-            z-index: 1000;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            color: white;
         }
 
         .sidenav {
             height: 100%;
-            width: 0; 
+            width: 0;
             position: fixed;
             z-index: 2000;
             top: 0;
@@ -54,239 +62,244 @@
             background-color: #1a1a1a;
             overflow-x: hidden;
             transition: 0.4s;
-            padding-top: 80px;
-            text-align: right;
+            padding-top: 60px;
         }
 
         .sidenav a {
-            padding: 15px 30px;
+            padding: 15px 25px;
             text-decoration: none;
-            font-size: 1.3rem;
-            color: #ecf0f1;
+            font-size: 1.2rem;
+            color: #ddd;
             display: block;
-            transition: 0.3s;
             border-bottom: 1px solid #333;
-            font-family: 'Reem Kufi', sans-serif;
             cursor: pointer;
         }
+
+        .sidenav a:hover { color: var(--light-green); }
 
         .close-btn {
             position: absolute;
-            top: 20px;
+            top: 10px;
             left: 20px;
-            font-size: 40px;
+            font-size: 36px;
             color: white;
             cursor: pointer;
-            background: none;
-            border: none;
         }
 
-        .page-section {
-            display: none;
-            flex-direction: column;
-            align-items: center;
-            padding: 40px 20px;
+        /* المحتوى الرئيسي */
+        .container {
+            padding: 100px 20px 40px;
+            max-width: 800px;
+            margin: auto;
         }
 
-        .active-section {
-            display: flex;
-        }
+        .section { display: none; text-align: center; }
+        .active { display: block; }
 
         .main-card {
-            background: #ffffff;
-            max-width: 900px;
-            width: 100%;
-            padding: 50px;
+            background: var(--card-bg);
+            padding: 30px;
             border-radius: 20px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
-            text-align: center;
-            margin-top: 60px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            margin-bottom: 20px;
         }
 
         .bismillah {
             font-family: 'Reem Kufi', sans-serif;
-            font-size: clamp(2.2rem, 8vw, 4rem);
-            color: var(--accent-color);
-            margin-bottom: 40px;
+            color: var(--main-green);
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        /* أزرار الصفحة الرئيسية */
+        .grid-menu {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+
+        .nav-card {
+            background: var(--main-green);
+            color: white;
+            padding: 40px;
+            border-radius: 15px;
+            font-size: 1.8rem;
+            cursor: pointer;
+            transition: 0.3s;
+            text-decoration: none;
+            display: block;
+        }
+
+        .nav-card:hover { transform: scale(1.02); background: var(--light-green); }
+
+        /* نظام القرآن */
+        .surah-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+            gap: 10px;
+        }
+
+        .surah-item {
+            background: #eee;
+            padding: 10px;
+            border-radius: 8px;
+            cursor: pointer;
             font-weight: bold;
         }
 
-        .quran-text, .dhikr-item {
-            font-size: clamp(1.4rem, 4vw, 2.1rem);
-            text-align: justify;
-            text-align-last: center;
-            color: #111;
+        .surah-item:hover { background: var(--light-green); color: white; }
+
+        .quran-text {
+            font-size: 1.8rem;
+            line-height: 2.5;
+            text-align: center;
             direction: rtl;
         }
 
+        /* خاتم التسبيح */
+        #counter { font-size: 6rem; color: var(--main-green); margin: 20px 0; }
+        .tasbih-btn {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 8px solid var(--gold);
+            background: var(--main-green);
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            box-shadow: 0 10px 0 #0d3d0d;
+        }
+        .tasbih-btn:active { transform: translateY(5px); box-shadow: 0 5px 0 #0d3d0d; }
+
+        /* الأذكار */
         .dhikr-item {
-            background: #fdfdfd;
-            border: 1px solid #eee;
-            padding: 20px;
-            margin-bottom: 20px;
-            border-radius: 10px;
-            width: 100%;
-            box-sizing: border-box;
-        }
-
-        .dhikr-count {
-            display: inline-block;
-            background: var(--accent-color);
-            color: white;
-            padding: 5px 15px;
-            border-radius: 20px;
-            font-size: 1rem;
-            margin-top: 10px;
-        }
-
-        .insta-btn {
-            display: inline-block;
-            background: linear-gradient(45deg, #f09433, #e1306c, #833ab4);
-            color: white;
-            text-decoration: none;
-            padding: 15px 40px;
-            border-radius: 15px;
-            font-family: sans-serif;
-            font-weight: bold;
+            background: #f9f9f9;
+            padding: 15px;
+            margin-bottom: 10px;
+            border-right: 5px solid var(--main-green);
+            text-align: right;
             font-size: 1.3rem;
-            transition: 0.3s;
-            box-shadow: 0 5px 20px rgba(225, 48, 108, 0.4);
-            margin-top: 20px;
-        }
-
-        @media (max-width: 768px) {
-            .main-card { padding: 30px 15px; border-radius: 0; margin-top: 40px; }
-            .menu-btn { top: 10px; right: 10px; font-size: 20px; }
         }
     </style>
 </head>
 <body>
 
-    <button class="menu-btn" onclick="openNav()">☰ القائمة</button>
-
-    <div id="mySidenav" class="sidenav"><a onclick="showSection('quran-list')">القرآن الكريم</a>
-        <button class="close-btn" onclick="closeNav()">&times;</button>
-        <a onclick="showSection('quran')">سورة يس</a>
-        <a onclick="showSection('morning')">أذكار الصباح</a>
-        <a onclick="showSection('evening')">أذكار المساء</a>
-        <a onclick="showSection('subha')">السبحة الإلكترونية</a>
-        <a onclick="showSection('contact')">التواصل</a>
+    <div class="header">
+        <div style="font-weight: bold; font-size: 1.2rem;">ذاكر المسلم</div>
+        <button class="menu-btn" onclick="toggleNav()">☰</button>
     </div>
 
-    <div id="quran" class="page-section active-section">
-        <div class="main-card">
-            <div class="bismillah">بسم الله الرحمن الرحيم</div>
-            <div class="quran-text">
-                يسٓ (1) وَٱلۡقُرۡءَانِ ٱلۡحَكِيمِ (2) إِنَّكَ لَمِنَ ٱلۡمُرۡسَلِينَ (3) عَلَىٰ صِرَٰطٖ مُّسۡتَقِيمٖ (4) تَنزِيلَ ٱلۡعَزِيزِ ٱلرَّحِيمِ (5) لِتُنذِرَ قَوۡمٗا مَّآ أُنذِرَ ءَابَآؤُهُمۡ فَهُمۡ غَٰفِلُونَ (6) لَقَدۡ حَقَّ ٱلۡقَوۡلُ عَلَىٰٓ أَكۡثَرِهِمۡ فَهُمۡ لَا يُؤۡمِنُونَ (7) إِنَّا جَعَلۡنَا فِيٓ أَعۡنَٰقِهِمۡ أَغۡلَٰلٗا فَهِيَ إِلَى ٱلۡأَذۡقَانِ فَهُم مُّقۡمَحُونَ (8) وَجَعَلۡنَا مِنۢ بَيۡنِ أَيۡدِيهِمۡ سَدّٗا وَمِنۡ خَلۡفِهِمۡ سَدّٗا فَأَغۡشَيۡنَٰهُمۡ فَهُمۡ لَا يُبۡصِرُونَ (9) وَسَوَآءٌ عَلَيۡهِمۡ ءَأَنذَرۡتَهُمۡ أَمۡ لَمۡ تُنذِرۡهُمۡ لَا يُؤۡمِنُونَ (10) إِنَّمَا تُنذِرُ مَنِ ٱتَّبَعَ ٱلذِّكۡرَ وَخَشِيَ ٱلرَّحۡمَٰنَ بِٱلۡغَيۡبِۖ فَبَشِّرۡهُ بِمَغۡفِرَةٖ وَأَجۡرٖ كَرِيمٍ (11) إِنَّا نَحۡنُ نُحۡيِ ٱلۡمَوۡتَىٰ وَنَكۡتُبُ مَا قَدَّمُواْ وَءَاثَٰرَهُمۡۚ وَكُلَّ شَيۡءٍ أَحۡصَيۡنَٰهُ فِيٓ إِمَامٖ مُّبِينٖ (12) وَٱضۡرِبۡ لَهُم مَّثَلًا أَصۡحَٰبَ ٱلۡقَرۡيَةِ إِذۡ جَآءَهَا ٱلۡمُرۡسَلُونَ (13) إِذۡ أَرۡسَلۡنَآ إِلَيۡهِمُ ٱثۡنَيۡنِ فَكَذَّبُوهُمَا فَعَزَّزۡنَا بِثَالِثٖ فَقَالُوٓاْ إِنَّآ إِلَيۡكُم مُّرۡسَلُونَ (14) قَالُواْ مَآ أَنتُمۡ إِلَّا بَشَرٞ مِّثۡلُنَا وَمَآ أَنزَلَ ٱلرَّحۡمَٰنُ مِن شَيۡءٍ إِنۡ أَنتُمۡ إِلَّا تَكۡذِبُونَ (15) قَالُواْ رَبُّنَا يَعۡلَمُ إِنَّآ إِلَيۡكُمۡ لَمُرۡسَلُونَ (16) وَمَا عَلَيۡنَآ إِلَّا ٱلۡبَلَٰغُ ٱلۡمُبِينُ (17) قَالُوٓاْ إِنَّا تَطَيَّرۡنَا بِكُمۡۖ لَئِن لَّمۡ تَنتَهُواْ لَنَرۡجُمَنَّكُمۡ وَلَيَمَسَّنَّكُم مِّنَّا عَذَابٌ أَلِيمٞ (18) قَالُواْ طَٰٓئِرُكُم مَّعَكُمۡ أَئِن ذُكِّرۡتُمۚ بَلۡ أَنتُمۡ قَوۡمٞ مُّسۡرِفُونَ (19) وَجَآءَ مِنۡ أَقۡصَا ٱلۡمَدِينَةِ رَجُلٞ يَسۡعَىٰ قَالَ يَٰقَوۡمِ ٱتَّبِعُواْ ٱلۡمُرۡسَلِينَ (20) ٱتَّبِعُواْ مَن لَّا يَسۡـَٔلُكُمۡ أَجۡرٗا وَهُم مُّهۡتَدُونَ (21) وَمَا لِيَ لَآ أَعۡبُدُ ٱلَّذِي فَطَرَنِي وَإِلَيۡهِ تُرۡجَعُونَ (22) ءَأَتَّخِذُ مِن دُونِهِۦٓ ءَالِهَةً إِن يُرِدۡنِ ٱلرَّحۡمَٰنُ بِضُرّٖ لَّا تُغۡنِ عَنِّي شَفَٰعَتُهُمۡ شَيۡـٔٗا وَلَا يُنقِذُونِ (23) إِنِّيٓ إِذٗا لَّفِي ضَلَٰلٖ مُّبِينٍ (24) إِنِّيٓ ءَامَنتُ بِرَبِّكُمۡ فَٱسۡمَعُونِ (25) قِيلَ ٱدۡخُلِ ٱلۡجَنَّةَۖ قَالَ يَٰلَيۡتَ قَوۡمِي يَعۡلَمُونَ (26) بِمَا غَفَرَ لِي رَبِّي وَجَعَلَنِي مِنَ ٱلۡمُكۡرَمِينَ (27) ۞وَمَآ أَنزَلۡنَا عَلَىٰ قَوۡمِهِۦ مِنۢ بَعۡدِهِۦ مِن جُندٖ مِّنَ ٱلسَّمَآءِ وَمَا كُنَّا مُنزِلِينَ (28) إِن كَانَتۡ إِلَّا صَيۡحَةٗ وَٰحِدَةٗ فَإِذَا هُمۡ خَٰمِدُونَ (29) يَٰحَسۡرَةً عَلَى ٱلۡعِبَادِۚ مَا يَأۡتِيهِم مِّن رَّسُولٍ إِلَّا كَانُواْ بِهِۦ يَسۡتَهۡزِءُونَ (30) أَلَمۡ يَرَوۡاْ كَمۡ أَهۡلَكۡنَا قَبۡلَهُم مِّنَ ٱلۡقُرُونِ أَنَّهُمۡ إِلَيۡهِمۡ لَا يَرۡجِعُونَ (31) وَإِن كُلّٞ لَّمَّا جَمِيعٞ لَّدَيۡنَا مُحۡضَرُونَ (32) وَءَايَةٞ لَّهُمُ ٱلۡأَرۡضُ ٱلۡمَيۡتَةُ أَحۡيَيۡنَٰهَا وَأَخۡرَجۡنَا مِنۡهَا حَبّٗا فَمِنۡهُ يَأۡكُلُونَ (33) وَجَعَلۡنَا فِيهَا جَنَّٰتٖ مِّن نَّخِيلٖ وَأَعۡنَٰبٖ وَفَجَّرۡنَا فِيهَا مِنَ ٱلۡعُيُونِ (34) لِيَأۡكُلُواْ مِن ثَمَرِهِۦ وَمَا عَمِلَتۡهُ أَيۡدِيهِمۡۚ أَفَلَا يَشۡكُرُونَ (35) سُبۡحَٰنَ ٱلَّذِي خَلَقَ ٱلۡأَزۡوَٰجَ كُلَّهَا مِمَّا تُنۢبِتُ ٱلۡأَرۡضُ وَمِنۡ أَنفُسِهِمۡ وَمِمَّا لَا يَعۡلَمُونَ (36) وَءَايَةٞ لَّهُمُ ٱلَّيۡلُ نَسۡلَخُ مِنۡهُ ٱلنَّهَارَ فَإِذَا هُم مُّظۡلِمُونَ (37) وَٱلشَّمۡسُ تَجۡرِي لِمُسۡتَقَرّٖ لَّهَاۚ ذَٰلِكَ تَقۡدِيرُ ٱلۡعَزِيزِ ٱلۡعَلِيمِ (38) وَٱلۡقَمَرَ قَدَّرۡنَٰهُ مَنَازِلَ حَتَّىٰ عَادَ كَٱلۡعُرۡجُونِ ٱلۡقَدِيمِ (39) لَا ٱلشَّمۡسُ يَنۢبَغِي لَهَآ أَن تُدۡرِكَ ٱلۡقَمَرَ وَلَا ٱلَّيۡلُ سَابِقُ ٱلنَّهَارِۚ وَكُلّٞ فِي فَلَكٖ يَسۡبَحُونَ (40) وَءَايَةٞ لَّهُمۡ أَنَّا حَمَلۡنَا ذُرِّيَّتَهُمۡ فِي ٱلۡفُلۡكِ ٱلۡمَشۡحُونِ (41) وَخَلَقۡنَا لَهُم مِّن مِّثۡلِهِۦ مَا يَرۡكَبُونَ (42) وَإِن نَّشَأۡ نُغۡرِقۡهُمۡ فَلَا صَرِيخَ لَهُمۡ وَلَا هُمۡ يُنقَذُونَ (43) إِلَّا رَحۡمَةٗ مِّنَّا وَمَتَٰعًا إِلَىٰ حِينٖ (44) وَإِذَا قِيلَ لَهُمُ ٱتَّقُواْ مَا بَيۡنَ أَيۡدِيكُمۡ وَمَا خَلۡفَكُمۡ لَعَلَّكُمۡ تُرۡحَمُونَ (45) وَمَا تَأۡتِيهِم مِّنۡ ءَايَةٖ مِّنۡ ءَايَٰتِ رَبِّهِمۡ إِلَّا كَانُواْ عَنۡهَا مُعۡرِضِينَ (46) وَإِذَا قِيلَ لَهُمۡ أَنفِقُواْ مِمَّا رَزَقَكُمُ ٱللَّهُ قَالَ ٱلَّذِينَ كَفَرُواْ لِلَّذِينَ ءَامَنُوٓاْ أَنُطۡعِمُ مَن لَّوۡ يَشَآءُ ٱللَّهُ أَطۡعَمَهُۥٓ إِنۡ أَنتُمۡ إِلَّا فِي ضَلَٰلٖ مُّبِينٖ (47) وَيَقُولُونَ مَتَىٰ هَٰذَا ٱلۡوَعۡدُ إِن كُنتُمۡ صَٰدِقِينَ (48) مَا يَنظُرُونَ إِلَّا صَيۡحَةٗ وَٰحِدَةٗ تَأۡخُذُهُمۡ وَهُمۡ يَخِصِّمُونَ (49) فَلَا يَسۡتَطِيعُونَ تَوۡصِيَةٗ وَلَآ إِلَىٰٓ أَهۡلِهِمۡ يَرۡجِعُونَ (50) وَنُفِخَ فِي ٱلصُّورِ فَإِذَا هُم مِّنَ ٱلۡأَجۡدَاثِ إِلَىٰ رَبِّهِمۡ يَنسِلُونَ (51) قَالُواْ يَٰوَيۡلَنَا مَنۢ بَعَثَنَا مِن مَّرۡقَدِنَاۜۗ هَٰذَا مَا وَعَدَ ٱلرَّحۡمَٰنُ وَصَدَقَ ٱلۡمُرۡسَلُونَ (52) إِن كَانَتۡ إِلَّا صَيۡحَةٗ وَٰحِدَةٗ فَإِذَا هُمۡ جَمِيعٞ لَّدَيۡنَا مُحۡضَرُونَ (53) فَٱلۡيَوۡمَ لَا تُظۡلَمُ نَفۡسٞ شَيۡـٔٗا وَلَا تُجۡزَوۡنَ إِلَّا مَا كُنتُمۡ تَعۡمَلُونَ (54) إِنَّ أَصۡحَٰبَ ٱلۡجَنَّةِ ٱلۡيَوۡمَ فِي شُغُلٖ فَٰكِهُونَ (55) هُمۡ وَأَزۡوَٰجُهُمۡ فِي ظِلَٰلٍ عَلَى ٱلۡأَرَآئِكِ مُتَّكِـُٔونَ (56) لَهُمۡ فِيهَا فَٰكِهَةٞ وَلَهُم مَّا يَدَّعُونَ (57) سَلَٰمٞ قَوۡلٗا مِّن رَّبّٖ رَّحِيمٖ (58) وَٱمۡتَٰزُواْ ٱلۡيَوۡمَ أَيُّهَا ٱلۡمُجۡرِمُونَ (59) ۞أَلَمۡ أَعۡهَدۡ إِلَيۡكُمۡ يَٰبَنِيٓ ءَادَمَ أَن لَّا تَعۡبُدُواْ ٱلشَّيۡطَٰنَۖ إِنَّهُۥ لَكُمۡ عَدُوّٞ مُّبِينٞ (60) وَأَنِ ٱعۡبُدُونِيۚ هَٰذَا صِرَٰطٞ مُّسۡتَقِيمٞ (61) وَلَقَدۡ أَضَلَّ مِنكُمۡ جِبِلّٗا كَثِيرًاۖ أَفَلَمۡ تَكُونُواْ تَعۡقِلُونَ (62) هَٰذِهِۦ جَهَنَّمُ ٱلَّتِي كُنتُمۡ تُوعَدُونَ (63) ٱصۡلَوۡهَا ٱلۡيَوۡمَ بِمَا كُنتُمۡ تَكۡفُرُونَ (64) ٱلۡيَوۡمَ نَخۡتِمُ عَلَىٰٓ أَفۡوَٰهِهِمۡ وَتُكَلِّمُنَآ أَيۡدِيهِمۡ وَتَشۡهَدُ أَرۡجُلُهُم بِمَا كَانُواْ يَكۡسِبُونَ (65) وَلَوۡ نَشَآءُ لَطَمَسۡنَا عَلَىٰٓ أَعۡيُنِهِمۡ فَٱسۡتَبَقُواْ ٱلصِّرَٰطَ فَأَنَّىٰ يُبۡصِرُونَ (66) وَلَوۡ نَشَآءُ لَمَسَخۡنَٰهُمۡ عَلَىٰ مَكَانَتِهِمۡ فَمَا ٱسۡتَطَٰعُواْ مُضِيّٗا وَلَا يَرۡجِعُونَ (67) وَمَن نُّعَمِّرۡهُ نُنَكِّسۡهُ فِي ٱلۡخَلۡقِۚ أَفَلَا يَعۡقِلُونَ (68) وَمَا عَلَّمۡنَٰهُ ٱلشِّعۡرَ وَمَا يَنۢبَغِي لَهُۥٓۚ إِنۡ هُوَ إِلَّا ذِكۡرٞ وَقُرۡءَانٞ مُّبِينٞ (69) لِّيُنذِرَ مَن كَانَ حَيّٗا وَيَحِقَّ ٱلۡقَوۡلُ عَلَى ٱلۡكَٰفِرِينَ (70) أَوَلَمۡ يَرَوۡاْ أَنَّا خَلَقۡنَا لَهُم مِّمَّا عَمِلَتۡ أَيۡدِينَآ أَنۡعَٰمٗا فَهُمۡ لَهَا مَٰلِكُونَ (71) وَذَلَّلۡنَٰهَا لَهُمۡ فَمِنۡهَا رَكُوبُهُمۡ وَمِنۡهَا يَأۡكُلُونَ (72) وَلَهُمۡ فِيهَا مَنَٰفِعُ وَمَشَارِبُۚ أَفَلَا يَشۡكُرُونَ (73) وَٱتَّخَذُواْ مِن دُونِ ٱللَّهِ ءَالِهَةٗ لَّعَلَّهُمۡ يُنصَرُونَ (74) لَا يَسۡتَطِيعُونَ نَصۡرَهُمۡ وَهُمۡ لَهُمۡ جُندٞ مُّحۡضَرُونَ (75) فَلَا يَحۡزُنكَ قَوۡلُهُمۡۘ إِنَّا نَعۡلَمُ مَا يُسِرُّونَ وَمَا يُعۡلِنُونَ (76) أَوَلَمۡ يَرَ ٱلۡإِنسَٰنُ أَنَّا خَلَقۡنَٰهُ مِن نُّطۡفَةٖ فَإِذَا هُوَ خَصِيمٞ مُّبِينٞ (77) وَضَرَبَ لَنَا مَثَلٗا وَنَسِيَ خَلۡقَهُۥۖ قَالَ مَن يُحۡيِ ٱلۡعِظَٰمَ وَهِيَ رَمِيمٞ (78) قُلۡ يُحۡيِيهَا ٱلَّذِيٓ أَنشَأَهَآ أَوَّلَ مَرَّةٖۖ وَهُوَ بِكُلِّ خَلۡقٍ عَلِيمٌ (79) ٱلَّذِي جَعَلَ لَكُم مِّنَ ٱلشَّجَرِ ٱلۡأَخۡضَرِ نَارٗا فَإِذَآ أَنتُم مِّنۡهُ تُوقِدُونَ (80) أَوَلَيۡسَ ٱلَّذِي خَلَقَ ٱلسَّمَٰوَٰتِ وَٱلۡأَرۡضَ بِقَٰدِرٍ عَلَىٰٓ أَن يَخۡلُقَ مِثۡلَهُمۚ بَلَىٰ وَهُوَ ٱلۡخَلَّٰقُ ٱلۡعَلِيمُ (81) إِنَّمَآ أَمۡرُهُۥٓ إِذَآ أَرَادَ شَيۡـًٔا أَن يَقُولَ لَهُۥ كُن فَيَكُونُ (82) فَسُبۡحَٰنَ ٱلَّذِي بِيَدِهِۦ مَلَكُوتُ كُلِّ شَيۡءٖ وَإِلَيۡهِ تُرۡجَعُونَ (83)
+    <div id="mySidenav" class="sidenav">
+        <span class="close-btn" onclick="toggleNav()">&times;</span>
+        <a onclick="showSection('home')">الرئيسية</a>
+        <a onclick="showSection('quran')">القرآن الكريم</a>
+        <a onclick="showSection('azkar')">الأذكار</a>
+        <a onclick="showSection('subha')">خاتم التسبيح</a>
+        <a href="https://www.instagram.com/7uv0_?igsh=OTEwbzJvNmJxb2M0" target="_blank">تواصل معنا (Instagram)</a>
+    </div>
+
+    <div class="container">
+        
+        <div id="home" class="section active">
+            <div class="bismillah">مرحباً بك</div>
+            <div class="grid-menu">
+                <div class="nav-card" onclick="showSection('quran')">📖 القرآن الكريم</div>
+                <div class="nav-card" onclick="showSection('azkar')">📿 الأذكار</div>
+                <div class="nav-card" onclick="showSection('subha')">💍 خاتم التسبيح</div>
             </div>
         </div>
-    </div><div id="quran-list" class="page-section">
-    <div class="main-card">
-        <div class="bismillah">القرآن الكريم</div>
-        <p style="font-size: 1.2rem; color: #666;">اختر السورة التي تريد قراءتها:</p>
 
-        <div id="surah-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); gap: 15px; margin-top: 20px;">
+        <div id="quran" class="section">
+            <div class="main-card">
+                <div class="bismillah">الفهرس</div>
+                <div id="surah-list" class="surah-grid">جارِ التحميل...</div>
             </div>
-    </div>
-</div>
+        </div>
 
-<div id="surah-content" class="page-section">
-    <div class="main-card">
-        <button onclick="showSection('quran-list')" style="float: right; background: #eee; border: none; padding: 5px 15px; border-radius: 5px; cursor: pointer;">رجوع للقائمة</button>
-        <div id="surah-title" class="bismillah" style="font-size: 2.5rem;"></div>
-        <div id="full-quran-text" class="quran-text" style="text-align: center; line-height: 2.5;">
+        <div id="surah-view" class="section">
+            <div class="main-card">
+                <button onclick="showSection('quran')" style="margin-bottom: 20px;">رجوع للفهرس</button>
+                <div id="surah-title" class="bismillah"></div>
+                <div id="quran-content" class="quran-text"></div>
             </div>
-    </div>
-</div>
-
-    <div id="morning" class="page-section">
-        <div class="main-card">
-            <h2 class="bismillah">أذكار الصباح</h2>
-            <div class="dhikr-item">أصبحنا وأصبح الملك لله، والحمد لله، لا إله إلا الله وحده لا شريك له. <br><span class="dhikr-count">مرة واحدة</span></div>
-            <div class="dhikr-item">آية الكرسي: (اللَّهُ لاَ إِلَهَ إِلاَّ هُوَ الْحَيُّ الْقَيُّومُ...) <br><span class="dhikr-count">مرة واحدة</span></div>
         </div>
-    </div>
 
-    <div id="evening" class="page-section">
-        <div class="main-card">
-            <h2 class="bismillah">أذكار المساء</h2>
-            <div class="dhikr-item">أمسينا وأمسى الملك لله، والحمد لله. <br><span class="dhikr-count">مرة واحدة</span></div>
-            <div class="dhikr-item">رضيت بالله رباً، وبالإسلام ديناً، وبمحمد صلى الله عليه وسلم نبياً. <br><span class="dhikr-count">3 مرات</span></div>
+        <div id="azkar" class="section">
+            <div class="main-card">
+                <div class="bismillah">الأذكار</div>
+                <button class="nav-card" style="font-size: 1.2rem; padding: 15px; margin-bottom: 10px;" onclick="loadAzkar('morning')">أذكار الصباح</button>
+                <button class="nav-card" style="font-size: 1.2rem; padding: 15px;" onclick="loadAzkar('evening')">أذكار المساء</button>
+                <div id="azkar-content" style="margin-top: 20px;"></div>
+            </div>
         </div>
-    </div>
 
-    <div id="subha" class="page-section">
-        <div class="main-card">
-            <h2 class="bismillah">السبحة الإلكترونية</h2>
-            <div id="counter" style="font-size: 5rem; font-weight: bold; color: var(--accent-color); margin: 20px 0;">0</div>
-            <button onclick="increment()" style="background: var(--accent-color); color: white; border: none; padding: 20px 50px; border-radius: 50px; font-size: 1.5rem; cursor: pointer;">اضغط للتسبيح</button>
-            <br>
-            <button onclick="resetCounter()" style="background: transparent; color: #666; border: none; margin-top: 15px; cursor: pointer; text-decoration: underline;">تصفير العداد</button>
+        <div id="subha" class="section">
+            <div class="main-card">
+                <div class="bismillah">خاتم التسبيح</div>
+                <div id="counter">0</div>
+                <button class="tasbih-btn" onclick="hitTasbih()">سبّح</button>
+                <br><br>
+                <button onclick="resetTasbih()">تصفير</button>
+            </div>
         </div>
-    </div>
 
-    <div id="contact" class="page-section">
-        <div class="main-card">
-            <h2 class="bismillah">التواصل</h2>
-            <p style="font-size: 1.5rem;"> </p>
-  <a href="https://www.instagram.com/7uv0_?igsh=OTEwbzJvNmJxb2M0" class="insta-btn" target="_blank" style="background: #000 !important; width: 280px; display: block; margin: 15px auto; text-align: center; box-shadow: none;"> Instagram</a></a> <a href="https://www.tiktok.com/@7uv0_?_r=1&_t=ZS-94Mu9f22GAs" class="insta-btn" target="_blank" style="background: #000 !important; width: 100%; max-width: 280px; display: block; margin: 15px auto; text-align: center;"> TikTok</a>
-
-<a href="mailto:Beestingwow@gmail.com" class="insta-btn" style="background: #000 !important; width: 100%; max-width: 280px; display: block; margin: 15px auto; text-align: center;"> gmail</a>
-        </div>
     </div>
 
     <script>
-        function openNav() { document.getElementById("mySidenav").style.width = "var(--drawer-width)"; }
-        function closeNav() { document.getElementById("mySidenav").style.width = "0"; }
-
-        function showSection(sectionId) {
-            var sections = document.getElementsByClassName('page-section');
-            for (var i = 0; i < sections.length; i++) {
-                sections[i].style.display = "none";
-            }
-            document.getElementById(sectionId).style.display = "flex";
-            closeNav();
-            window.scrollTo(0, 0);
+        function toggleNav() {
+            const nav = document.getElementById("mySidenav");
+            nav.style.width = nav.style.width === "250px" ? "0" : "250px";
         }
 
-        let count = 0;
-        function increment() {
-            count++;
-            document.getElementById("counter").innerHTML = count;
-            if (navigator.vibrate) navigator.vibrate(50);
+        function showSection(id) {
+            document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+            document.getElementById(id).classList.add('active');
+            toggleNav();
+            window.scrollTo(0,0);
         }
-        function resetCounter() {
-            count = 0;
-            document.getElementById("counter").innerHTML = count;
-        }// جلب قائمة السور
-fetch('https://api.alquran.cloud/v1/surah')
-    .then(res => res.json())
-    .then(data => {
-        const grid = document.getElementById('surah-grid');
-        data.data.forEach(s => {
-            const btn = document.createElement('div');
-            btn.style = "background: #2ecc71; color: white; padding: 15px; border-radius: 10px; cursor: pointer; text-align: center; font-weight: bold;";
-            btn.textContent = s.name;
-            btn.onclick = () => loadSurah(s.number, s.name);
-            grid.appendChild(btn);
-        });
-    });
 
-// جلب نص السورة
-function loadSurah(num, name) {
-    showSection('surah-content');
-    document.getElementById('surah-title').textContent = name;
-    document.getElementById('full-quran-text').innerHTML = "جاري التحميل...";
-    fetch(https://api.alquran.cloud/v1/surah/${num})
-        .then(res => res.json())
-        .then(data => {
-            let txt = "";
-            data.data.ayahs.forEach(a => {
-                txt += a.text +  <span style="color: #2ecc71;">(${a.numberInSurah})</span> ;
+        // جلب القرآن
+        fetch('https://api.alquran.cloud/v1/surah')
+            .then(res => res.json())
+            .then(data => {
+                const list = document.getElementById('surah-list');
+                list.innerHTML = "";
+                data.data.forEach(s => {
+                    const d = document.createElement('div');
+                    d.className = 'surah-item';
+                    d.textContent = s.name;
+                    d.onclick = () => loadSurah(s.number, s.name);
+                    list.appendChild(d);
+                });
             });
-            document.getElementById('full-quran-text').innerHTML = txt;
-        });
-}
+
+        function loadSurah(num, name) {
+            showSection('surah-view');
+            document.getElementById('surah-title').textContent = name;
+            document.getElementById('quran-content').textContent = "جارِ التحميل...";
+            fetch(`https://api.alquran.cloud/v1/surah/${num}`)
+                .then(res => res.json())
+                .then(data => {
+                    let txt = data.data.ayahs.map(a => a.text + ` (${a.numberInSurah})`).join(" ");
+                    document.getElementById('quran-content').textContent = txt;
+                });
+        }
+
+        // السبحة
+        let count = 0;
+        function hitTasbih() {
+            count++;
+            document.getElementById('counter').textContent = count;
+            if(navigator.vibrate) navigator.vibrate(50);
+        }
+        function resetTasbih() { count = 0; document.getElementById('counter').textContent = count; }
+
+        // الأذكار (مثال مبسط)
+        function loadAzkar(type) {
+            const box = document.getElementById('azkar-content');
+            const data = type === 'morning' ? ["أصبحنا وأصبح الملك لله", "آية الكرسي", "اللهم بك أصبحنا"] : ["أمسينا وأمسى الملك لله", "آية الكرسي", "اللهم بك أمسينا"];
+            box.innerHTML = data.map(z => `<div class="dhikr-item">${z}</div>`).join("");
+        }
     </script>
 </body>
 </html>
