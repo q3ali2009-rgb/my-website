@@ -7,318 +7,152 @@
     <meta name="google-site-verification" content="mVbrLsdyz076PAzXi4CUYURN5gsYti1DatIL098FeVs" />
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
-<head><meta name="description" content="موقع ذاكر - أذكار الصباح والمساء، القرآن الكريم، وخاتم التسبيح بإشراف علي ناصر">
-<meta name="keywords" content="قرآن، أذكار، تسبيح، ذاكر، علي ناصر، أذكار الصباح">
-<meta name="author" content="Ali Nasser">
-
-<meta property="og:title" content="موقع ذاكر | علي ناصر">
-<meta property="og:description" content="تطبيق إسلامي شامل للأذكار والقرآن">
-<meta property="og:image" content="رابط_صورة_لوغو_موقعك.jpg">
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="google-site-verification" content="mVbrLsdyz076PAzXi4CUYURN5gsYti1DatIL098FeVs" />
 
     <title>موقع ذاكر | بإشراف علي ناصر</title>
+    
+    <meta name="description" content="موقع ذاكر بإشراف علي ناصر: المصحف الكامل 114 سورة. اقرأ سورة البقرة، الكهف، يس، الملك، الإخلاص وجميع السور مع الأذكار.">
+    <meta name="keywords" content="القرآن الكريم كاملاً, 114 سورة, علي ناصر, أذكار الصباح والمساء, سورة الإخلاص, سورة الكافرون, القراءة المباشرة">
+
     <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Reem+Kufi:wght@500&display=swap" rel="stylesheet">
     
     <style>
-        :root {
-            --main-green: #1a5d1a;
-            --light-green: #2ecc71;
-            --gold: #D4AF37;
-            --bg-color: #f4f7f4;
-            --card-bg: #ffffff;
-            --transition-speed: 0.3s;
-        }
-
-        body {
-            background-color: var(--bg-color);
-            font-family: 'Amiri', serif;
-            margin: 0;
-            padding: 0;
-            color: #333;
-            direction: rtl;
-        }
+        :root { --main-green: #1a5d1a; --light-green: #2ecc71; --gold: #D4AF37; --bg-color: #f4f7f4; }
+        body { background-color: var(--bg-color); font-family: 'Amiri', serif; margin: 0; direction: rtl; }
 
         /* الهيدر */
-        .header {
-            background: var(--main-green);
-            color: white;
-            padding: 10px 20px;
-            display: flex;
-            align-items: center;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            height: 60px;
-            box-sizing: border-box;
-        }
+        .header { background: var(--main-green); color: white; padding: 10px 20px; display: flex; align-items: center; position: fixed; width: 100%; top: 0; z-index: 1000; height: 60px; box-sizing: border-box; }
+        .menu-btn { font-size: 30px; cursor: pointer; background: none; border: none; color: white; margin-left: 15px; }
 
-        .menu-btn {
-            font-size: 30px;
-            cursor: pointer;
-            background: none;
-            border: none;
-            color: white;
-            margin-left: 15px;
-            transition: transform 0.2s ease;
-        }
-        .menu-btn:hover { transform: scale(1.1); }
+        /* القائمة الجانبية يمين */
+        .sidenav { height: 100%; width: 0; position: fixed; z-index: 2000; top: 0; right: 0 !important; background-color: #1a1a1a; overflow-x: hidden; transition: 0.4s; padding-top: 60px; }
+        .sidenav a { padding: 15px 25px; text-decoration: none; font-size: 1.5rem; color: #bbb; display: block; text-align: right; border-bottom: 1px solid #222; }
+        .sidenav a:hover { background: #222; color: var(--light-green); padding-right: 35px; }
+        .close-btn { position: absolute; top: 10px; left: 20px; font-size: 36px; color: #888; cursor: pointer; }
 
-        .title-center {
-            font-family: 'Reem Kufi', sans-serif;
-            font-size: 1.3rem;
-            flex-grow: 1;
-        }
-
-        /* القائمة الجانبية - جهة اليمين */
-        .sidenav {
-            height: 100%;
-            width: 0;
-            position: fixed;
-            z-index: 2000;
-            top: 0;
-            right: 0 !important;
-            left: auto !important;
-            background-color: #1a1a1a;
-            overflow-x: hidden;
-            transition: var(--transition-speed) cubic-bezier(0.4, 0, 0.2, 1);
-            padding-top: 60px;
-            display: flex;
-            flex-direction: column;
-            box-shadow: -5px 0 15px rgba(0,0,0,0.5);
-        }
-
-        .close-btn {
-            position: absolute;
-            top: 15px;
-            left: 20px;
-            font-size: 40px;
-            color: #888;
-            cursor: pointer;
-            transition: 0.3s;
-        }
-        .close-btn:hover { color: white; transform: rotate(90deg); }
-
-        .sidenav a {
-            padding: 20px 25px;
-            text-decoration: none;
-            font-size: 1.6rem;
-            color: #bbb;
-            display: block;
-            border-bottom: 1px solid #222;
-            text-align: right;
-            transition: 0.3s;
-        }
-        .sidenav a:hover { 
-            background: #252525; 
-            color: var(--light-green); 
-            padding-right: 35px;
-        }
-
-        /* الأنيميشن والتفاعل مع الخانات */
-        .section { 
-            display: none; 
-            text-align: center; 
-            padding: 20px;
-            animation: fadeIn 0.5s ease;
-        }
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        /* الخانات والأنيميشن */
+        .container { padding-top: 80px; max-width: 800px; margin: auto; }
+        .section { display: none; text-align: center; animation: fadeIn 0.5s; }
         .active { display: block; }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
-        /* ستايل الخانات مع الأنيميشن */
-        .nav-card {
-            background: var(--main-green);
-            color: white;
-            padding: 25px;
-            border-radius: 15px;
-            font-size: 1.6rem;
-            cursor: pointer;
-            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            display: block;
-            width: 90%;
-            max-width: 450px;
-            margin: 15px auto;
-            border: none;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            position: relative;
-            overflow: hidden;
+        .nav-card { 
+            background: var(--main-green); color: white; padding: 20px; border-radius: 15px; 
+            font-size: 1.5rem; cursor: pointer; transition: 0.3s; width: 90%; margin: 15px auto; border: none;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
         }
+        .nav-card:hover { transform: translateY(-5px); background: var(--light-green); box-shadow: 0 8px 15px rgba(0,0,0,0.2); }
+        .nav-card:active { transform: scale(0.95); }
 
-        /* حركة عند تحديد الخانة (Hover) */
-        .nav-card:hover {
-            background: var(--light-green);
-            transform: translateY(-5px);
-            box-shadow: 0 8px 15px rgba(0,0,0,0.2);
-        }
-
-        /* حركة عند الضغط (Active) */
-        .nav-card:active {
-            transform: scale(0.95);
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
-
-        .container { padding-top: 80px; }
-        .main-card { background: white; padding: 25px; border-radius: 20px; margin: 10px auto; max-width: 700px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
-        .bismillah { font-family: 'Reem Kufi', sans-serif; color: var(--main-green); font-size: 2.2rem; margin-bottom: 25px; }
-        
-        /* الأذكار */
-        .dhikr-item { 
-            background: #f9fbf9; 
-            padding: 20px; 
-            margin-bottom: 12px; 
-            border-right: 6px solid var(--main-green); 
-            font-size: 1.7rem; 
-            border-radius: 10px; 
-            line-height: 1.7;
-            transition: 0.3s;
-        }
-        .dhikr-item:hover { background: #f0f7f0; transform: translateX(-5px); }
-
-        /* القرآن */
-        .surah-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(110px, 1fr)); gap: 12px; }
-        .surah-item { 
-            background: #f0f0f0; 
-            padding: 15px; 
-            border-radius: 10px; 
-            cursor: pointer; 
-            font-weight: bold; 
-            transition: 0.2s;
-        }
+        /* شبكة السور (114 سورة) */
+        .surah-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); gap: 10px; padding: 10px; }
+        .surah-item { background: white; padding: 15px; border-radius: 10px; cursor: pointer; font-weight: bold; transition: 0.2s; border: 1px solid #ddd; }
         .surah-item:hover { background: var(--gold); color: white; transform: scale(1.05); }
 
-        /* السبحة */
-        #counter { font-size: 7rem; color: var(--main-green); margin: 20px 0; font-weight: bold; text-shadow: 2px 2px 4px rgba(0,0,0,0.1); }
-        .tasbih-btn { 
-            width: 180px; 
-            height: 180px; 
-            border-radius: 50%; 
-            border: 8px solid var(--gold); 
-            background: var(--main-green); 
-            color: white; 
-            font-size: 2rem; 
-            cursor: pointer; 
-            transition: 0.2s;
-            box-shadow: 0 6px 15px rgba(0,0,0,0.2);
-        }
-        .tasbih-btn:active { transform: scale(0.9); box-shadow: 0 2px 5px rgba(0,0,0,0.2); }
+        .quran-text { font-size: 2rem; line-height: 2.5; text-align: center; padding: 20px; }
+        .dhikr-item { background: white; padding: 20px; margin: 10px; border-right: 5px solid var(--main-green); font-size: 1.6rem; border-radius: 8px; }
     </style>
 </head>
 <body>
 
     <div class="header">
         <button class="menu-btn" onclick="openNav()">☰</button>
-        <div class="title-center">موقع ذاكر</div>
+        <div style="flex-grow:1; text-align:center; font-family:'Reem Kufi'; font-size:1.2rem;">موقع ذاكر</div>
     </div>
 
     <div id="mySidenav" class="sidenav">
         <span class="close-btn" onclick="closeNav()">&times;</span>
         <a onclick="showSection('home')">● الرئيسية</a>
-        <a onclick="showSection('quran')">● القرآن الكريم</a>
+        <a onclick="showSection('quran')">● القرآن الكريم (كامل)</a>
         <a onclick="showSection('azkar')">● الأذكار</a>
         <a onclick="showSection('subha')">● خاتم التسبيح</a>
         <a onclick="showSection('contact')">● التواصل</a>
-        <div style="margin-top:auto; padding:25px; color:#666; text-align:center; border-top:1px solid #222;">by ali nasser</div>
     </div>
 
     <div class="container">
         <div id="home" class="section active">
-            <div class="bismillah">حياكم الله</div>
-            <button class="nav-card" onclick="showSection('quran')"> القرآن الكريم</button>
+            <h1 style="color:var(--main-green); font-family:'Reem Kufi';">بإشراف علي ناصر</h1>
+            <button class="nav-card" onclick="showSection('quran')"> القرآن الكريم كاملاً</button>
             <button class="nav-card" onclick="showSection('azkar')"> الأذكار</button>
             <button class="nav-card" onclick="showSection('subha')"> خاتم التسبيح</button>
         </div>
 
         <div id="quran" class="section">
-            <div class="main-card">
-                <div class="bismillah"></div>
-                <div id="surah-list" class="surah-grid">جارِ التحميل...</div>
-            </div>
-        </div>
-
-        <div id="azkar" class="section">
-            <div class="main-card">
-                <div class="bismillah">الأذكار</div>
-                <button class="nav-card" onclick="loadAzkar('morning')">☀️ أذكار الصباح</button>
-                <button class="nav-card" onclick="loadAzkar('evening')">🌙 أذكار المساء</button>
-                <div id="azkar-content" style="margin-top:30px;"></div>
-            </div>
-        </div>
-
-        <div id="subha" class="section">
-            <div class="main-card">
-                <div class="bismillah">خاتم التسبيح</div>
-                <div id="counter">0</div>
-                <button class="tasbih-btn" onclick="hitTasbih()">سبّح</button>
-                <br><br>
-                <button onclick="resetTasbih()" style="background:none; border:none; text-decoration:underline; cursor:pointer; font-size: 1.2rem; color: #888; transition: 0.3s;">تصفير العداد</button>
-            </div>
-        </div>
-
-        <div id="contact" class="section">
-            <div class="main-card">
-                <div class="bismillah">تواصل معنا</div>
-                <a href="https://www.instagram.com/7uv0_/" target="_blank" class="nav-card" style="background:linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%)">insta</a>
+            <div style="background:white; padding:20px; border-radius:20px;">
+                <h2 class="bismillah"</h2>
+                <div id="surah-list" class="surah-grid">جارِ تحميل المصحف...</div>
             </div>
         </div>
 
         <div id="surah-view" class="section">
-            <div class="main-card">
-                <button onclick="showSection('quran')" style="float:right; border:none; background:#eee; padding:8px 20px; border-radius:8px; cursor:pointer; font-weight:bold;">← رجوع</button>
-                <div id="surah-title" class="bismillah" style="clear:both; padding-top:15px;"></div>
-                <div id="quran-content" class="quran-text" style="font-size: 2.2rem; line-height: 2.8; text-align: justify;"></div>
+            <div style="background:white; padding:20px; border-radius:20px;">
+                <button onclick="showSection('quran')" style="float:right; border:none; padding:10px; border-radius:5px; cursor:pointer;">← رجوع</button>
+                <h2 id="surah-title" style="color:var(--main-green);"></h2>
+                <div id="quran-content" class="quran-text"></div>
             </div>
+        </div>
+
+        <div id="azkar" class="section">
+            <button class="nav-card" onclick="loadAzkar('morning')">☀️ أذكار الصباح</button>
+            <button class="nav-card" onclick="loadAzkar('evening')">🌙 أذكار المساء</button>
+            <div id="azkar-content"></div>
+        </div>
+
+        <div id="subha" class="section">
+            <div id="counter" style="font-size:5rem; color:var(--main-green);">0</div>
+            <button class="nav-card" style="width:150px; height:150px; border-radius:50%; margin:auto;" onclick="countUp()">سبّح</button>
+        </div>
+
+        <div id="contact" class="section">
+            <a href="https://www.instagram.com/7uv0_/" target="_blank" class="nav-card" style="background:#E1306C">Inst</a>
         </div>
     </div>
 
     <script>
         function openNav() { document.getElementById("mySidenav").style.width = "280px"; }
         function closeNav() { document.getElementById("mySidenav").style.width = "0"; }
-
+        
         function showSection(id) {
             document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
             document.getElementById(id).classList.add('active');
             closeNav();
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+            window.scrollTo(0,0);
         }
 
+        // أمر جلب الـ 114 سورة تلقائياً
         fetch('https://api.alquran.cloud/v1/surah')
-            .then(res => res.json()).then(data => {
+            .then(res => res.json())
+            .then(data => {
                 const list = document.getElementById('surah-list');
                 list.innerHTML = "";
-                data.data.forEach(s => {
-                    const item = document.createElement('div');
-                    item.className = 'surah-item';
-                    item.textContent = s.name;
-                    item.onclick = () => {
+                data.data.forEach(surah => {
+                    const div = document.createElement('div');
+                    div.className = 'surah-item';
+                    div.textContent = surah.name;
+                    div.onclick = () => {
                         showSection('surah-view');
-                        document.getElementById('surah-title').textContent = s.name;
-                        document.getElementById('quran-content').textContent = "جارِ جلب الآيات...";
-                        fetch(`https://api.alquran.cloud/v1/surah/${s.number}`)
-                            .then(r => r.json()).then(d => {
+                        document.getElementById('surah-title').textContent = surah.name;
+                        document.getElementById('quran-content').textContent = "جارِ تحميل الآيات...";
+                        fetch(`https://api.alquran.cloud/v1/surah/${surah.number}`)
+                            .then(r => r.json())
+                            .then(d => {
                                 document.getElementById('quran-content').textContent = d.data.ayahs.map(a => a.text + ` ﴿${a.numberInSurah}﴾`).join(" ");
                             });
                     };
-                    list.appendChild(item);
+                    list.appendChild(div);
                 });
             });
 
-        let count = 0;
-        function hitTasbih() { 
-            count++; 
-            document.getElementById('counter').textContent = count; 
-            if(navigator.vibrate) navigator.vibrate(40); 
-        }
-        function resetTasbih() { count = 0; document.getElementById('counter').textContent = count; }
-
-        function loadAzkar(type) {
-            const box = document.getElementById('azkar-content');
-            let az = (type === 'morning') ? 
-                ["أصبحنا وأصبح الملك لله والحمد لله", "يا حي يا قيوم برحمتك أستغيث", "رضيت بالله رباً وبالإسلام ديناً"] : 
-                ["أمسينا وأمسى الملك لله والحمد لله", "اللهم بك أمسينا وبك أصبحنا", "سبحان الله وبحمده (100 مرة)"];
-            box.innerHTML = az.map(t => `<div class="dhikr-item">${t}</div>`).join("");
+        let c = 0;
+        function countUp() { c++; document.getElementById('counter').textContent = c; }
+        
+        function loadAzkar(t) {
+            const b = document.getElementById('azkar-content');
+            let txt = t === 'morning' ? ["أصبحنا وأصبح الملك لله", "يا حي يا قيوم"] : ["أمسينا وأمسى الملك لله", "اللهم بك أمسينا"];
+            b.innerHTML = txt.map(z => `<div class="dhikr-item">${z}</div>`).join("");
         }
     </script>
 </body>
