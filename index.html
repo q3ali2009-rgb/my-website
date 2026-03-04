@@ -3,16 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <meta name="google-site-verification" content="mVbrLsdyz076PAzXi4CUYURN5gsYti1DatIL098FeVs" />
-<!DOCTYPE html>
-<html lang="ar" dir="rtl">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="google-site-verification" content="mVbrLsdyz076PAzXi4CUYURN5gsYti1DatIL098FeVs" />
-
-    <title><title>موقع ذاكر | أذكار وطاعات
+    
+    <title>موقع ذاكر | أذكار وطاعات</title>
     
     <meta name="description" content="موقع ذاكر بإشراف علي ناصر: المصحف الإلكتروني الكامل 114 سورة. اقرأ سورة البقرة، الكهف، يس، الملك، الإخلاص، الكافرون وجميع السور مع أذكار الصباح والمساء.">
     <meta name="keywords" content="علي ناصر, موقع ذاكر, سورة الإخلاص, سورة الكافرون, سورة البقرة, سورة الكهف, القرآن الكريم كاملا, 114 سورة, أذكار الصباح والمساء, سبحة إلكترونية">
@@ -37,7 +30,6 @@
             overflow-x: hidden;
         }
 
-        /* الهيدر - تعديل العنوان لليمين */
         .header {
             background: var(--main-green);
             color: white;
@@ -66,17 +58,16 @@
             font-family: 'Reem Kufi', sans-serif;
             font-size: 1.3rem;
             flex-grow: 1;
-            text-align: right; /* نقل الكلمة لليمين */
+            text-align: right;
         }
 
-        /* القائمة الجانبية - يمين */
         .sidenav {
             height: 100%;
             width: 0;
             position: fixed;
             z-index: 2000;
             top: 0;
-            right: 0 !important; /* تثبيت اليمين */
+            right: 0;
             background-color: #1a1a1a;
             overflow-x: hidden;
             transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
@@ -93,6 +84,7 @@
             text-align: right;
             border-bottom: 1px solid #222;
             transition: 0.3s;
+            cursor: pointer;
         }
 
         .sidenav a:hover {
@@ -110,7 +102,6 @@
             cursor: pointer;
         }
 
-        /* الحاويات والأنيميشن */
         .container { padding-top: 80px; max-width: 800px; margin: auto; padding-bottom: 40px; }
         
         .section { 
@@ -126,7 +117,6 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* الخانات التفاعلية */
         .nav-card {
             background: var(--main-green);
             color: white;
@@ -149,9 +139,6 @@
             box-shadow: 0 8px 15px rgba(0,0,0,0.2);
         }
 
-        .nav-card:active { transform: scale(0.94); }
-
-        /* شبكة السور 114 */
         .surah-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
@@ -183,6 +170,7 @@
             padding: 25px;
             border-radius: 20px;
             margin-top: 15px;
+            white-space: pre-wrap;
         }
 
         .dhikr-item {
@@ -247,7 +235,7 @@
 
         <div id="contact" class="section">
             <h2 style="color:var(--main-green);">تواصل معنا</h2>
-            <a href="https://www.instagram.com/7uv0_/" target="_blank" class="nav-card" style="background: linear-gradient(45deg, #f09433, #bc1888)">Instagram</a>
+            <a href="https://www.instagram.com/7uv0_/" target="_blank" class="nav-card" style="background: linear-gradient(45deg, #f09433, #bc1888); text-decoration: none;">Instagram</a>
         </div>
 
         <div id="surah-view" class="section">
@@ -269,7 +257,6 @@
             window.scrollTo({top: 0, behavior: 'smooth'});
         }
 
-        // جلب الـ 114 سورة تلقائياً لتصدر نتائج البحث
         fetch('https://api.alquran.cloud/v1/surah')
             .then(res => res.json())
             .then(data => {
